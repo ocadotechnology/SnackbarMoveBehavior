@@ -16,11 +16,9 @@
 
 package com.ocadotechnology.snackbarawaremovebehavior;
 
-import android.animation.ObjectAnimator;
 import android.annotation.SuppressLint;
 import android.support.design.widget.CoordinatorLayout;
 import android.support.design.widget.Snackbar;
-import android.util.AttributeSet;
 import android.view.View;
 
 import org.assertj.core.api.Assertions;
@@ -46,12 +44,6 @@ public class SnackbarAwareMoveBehaviorTest {
 
     @Mock
     Snackbar.SnackbarLayout snackbarLayout;
-
-    @Mock
-    AttributeSet attributeSet;
-
-    @Mock
-    ObjectAnimator animator;
 
     private SnackbarAwareMoveBehavior behavior;
 
