@@ -27,7 +27,7 @@ import java.util.List;
 public class SnackbarAwareMoveBehavior extends CoordinatorLayout.Behavior<View> {
 
     private float verticalTranslation;
-    private View[] viewsToAnimate;
+    private View[] viewsToTranslate;
 
     public SnackbarAwareMoveBehavior() {
         super();
@@ -62,21 +62,21 @@ public class SnackbarAwareMoveBehavior extends CoordinatorLayout.Behavior<View> 
             return false;
         }
 
-        translateView(view, targetVerticalTranslation);
+        translateViews(view, targetVerticalTranslation);
         return true;
     }
 
-    private void translateView(View view, float targetVerticalTranslation) {
-        if (viewsToAnimate == null) {
-            viewsToAnimate = getAnimatingViewsProvider().getViews(view);
+    private void translateViews(View view, float targetVerticalTranslation) {
+        if (viewsToTranslate == null) {
+            viewsToTranslate = getAnimatingViewsProvider().getViews(view);
         }
 
-        for (View viewToAnimate : viewsToAnimate) {
-            animateView(viewToAnimate, targetVerticalTranslation);
+        for (View viewToAnimate : viewsToTranslate) {
+            translateView(viewToAnimate, targetVerticalTranslation);
         }
     }
 
-    private void animateView(View view, float targetVerticalTranslation) {
+    private void translateView(View view, float targetVerticalTranslation) {
         view.setTranslationY(targetVerticalTranslation);
         verticalTranslation = targetVerticalTranslation;
     }
